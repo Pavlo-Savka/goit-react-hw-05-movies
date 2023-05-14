@@ -1,0 +1,27 @@
+.background {
+background-color: blueviolet;
+}
+.header {
+position: fixed;
+width: calc(100% - 70px);
+height: 50px;
+border-radius: 10px;
+margin: 10px 10px 10px 10px;
+background-color: rgb(193, 193, 193);
+box-shadow: 0px 10px 10px 1px rgba(97, 97, 97, 0.75);
+display: flex;
+align-items: center;
+padding-left: 50px;
+gap: 20px;
+}
+.container {
+    position: absolute;
+    margin: 80px 10px 10px 10px;
+    padding: 10px;
+    width: calc(100% - 40px);
+    height: calc(100vh - 120px);
+    display: block;
+    border-radius: 10px;
+    background-color: rgb(193, 193, 193);
+    overflow: auto;
+}
