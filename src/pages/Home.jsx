@@ -11,7 +11,7 @@ const [trendMovies, setTrendMovies] = useState([]);
 
         async function fetchMoviesData() {
             try {
-                const response = await fetchMovies(endpoint);
+                const response = await fetchMovies(endpoint, "");
                 setTrendMovies(response.results);
             }
             catch (error) {

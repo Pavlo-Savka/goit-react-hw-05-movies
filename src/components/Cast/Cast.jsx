@@ -7,11 +7,10 @@ const Cast = () => {
     const { id } = useParams();
     const [movieCast, setMovieCast] = useState([]);
     const endpoint = `/movie/${id}/credits`;
-    console.log(endpoint);
     useEffect(() => {
         async function fetchCast() {
             try {
-                const response = await fetchMovies(endpoint);
+                const response = await fetchMovies(endpoint, "");
                 setMovieCast(response.cast);
             }
             catch (error) {

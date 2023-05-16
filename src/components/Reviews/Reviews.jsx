@@ -8,11 +8,10 @@ const Reviews = () => {
     const { id } = useParams();
     const [movieReviews, setMovieReviews] = useState([]);    
     const endpoint = `/movie/${id}/reviews`;
-    console.log(endpoint);
     useEffect(() => {
         async function fetchReviews() {
             try {
-                const response = await fetchMovies(endpoint);
+                const response = await fetchMovies(endpoint, '');
                 setMovieReviews(response.results);
             }
             catch (error) {

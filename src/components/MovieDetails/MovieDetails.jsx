@@ -7,6 +7,7 @@ const MovieDetails = () => {
     const { id }  = useParams();
     const [movieDetails, setmovieDetails] = useState([]);
     const endpoint = `/movie/${id}`;
+    const query = "";
     const location = useLocation();
     const backLinkHref = location.state?.from ?? "/";
 
@@ -14,7 +15,7 @@ const MovieDetails = () => {
     useEffect(() => {
         async function fetchMovieDetails() {
             try {
-                const response = await fetchMovies(endpoint);
+                const response = await fetchMovies(endpoint, "");
                 setmovieDetails(response);
                 console.log(movieDetails);
             }
