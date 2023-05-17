@@ -1,6 +1,7 @@
 import fetchMovies from "../../API/fetchMovies";
 import { useState, useEffect} from "react";
 import { NavLink, useSearchParams } from "react-router-dom";
+import PropTypes from 'prop-types';
 import css from './Movies.module.css';
 
 const Movies = (fetchMovieByQuery) => {
@@ -26,28 +27,30 @@ const Movies = (fetchMovieByQuery) => {
                 }
             };
             fetchMovieByQuery();
-    }, [queryParam]);
-    // const handleSubmit = (evt) => {
-    //     evt.preventDefault();
-    //     const form = evt.currentTarget;
+    }, [queryParam, endpoint, searchQuery]);
+     const handleSubmit = (evt) => {
+         evt.preventDefault();
+         const form = evt.currentTarget;
+    //     updateQueryString();
     //    setSearchParams({ query: evt.target.value });
-    //     form.reset();
-    // };
+        form.reset();
+     };
     return (
         <div className={css.container}>
             <form
-                //onSubmit={handleSubmit}
-                action="">
+            onSubmit={handleSubmit}
+            >
                 <input
                     onChange={updateQueryString}
-                    type="text" />
+                    type="text"
+                    name="searchQueryForm" />
+                <button>Search</button>
             </form>
             {movies && (
                 <ul>
                     {movies.map((i) => (
                         <li key={i.id}>
-                            <NavLink to={`/movies/${i.id}`}> {i.original_title}</NavLink>
-                            
+                            <NavLink to={`/movies/${i.id}`}> {i.original_title}</NavLink>  
                         </li>
                     ))}
                 </ul>
@@ -55,4 +58,8 @@ const Movies = (fetchMovieByQuery) => {
         </div>
     )
 }
+
+Movies.propTypes = {
+    id: PropTypes.string.isRequired
+};
 export default Movies;

@@ -1,15 +1,18 @@
-import {  Route, Routes } from "react-router-dom";
-import MovieDetails from "../MovieDetails/MovieDetails";
-import Movies from '../Movies/Movies';
-import Home from "../../pages/Home";
+import { Route, Routes } from "react-router-dom";
+import { lazy } from 'react';
 import Layout from '../Layout/Layout';
-import Cast from '../Cast/Cast';
-import Reviews from '../Reviews/Reviews';
 
-// const endpointSaerch = "/search/search-movies";
-// const endpointGetDetails = "/movies/get-movie-details";
-// const endpointGetCredits = "/movies/get-movie-credits";
-// const endpointGetReviews = "/movies/get-movie-reviews";
+const MovieDetails = lazy(() =>
+  import('../MovieDetails/MovieDetails'));
+const Movies = lazy(() =>
+  import('../Movies/Movies'));
+const Home = lazy(() =>
+  import('../../pages/Home'));
+const Cast = lazy(() =>
+  import('../Cast/Cast'));
+const Reviews = lazy(() =>
+  import('../Reviews/Reviews'));
+  
 export const App = () => {
   return (
     <Routes>
