@@ -1,5 +1,5 @@
 import { useState, useEffect     } from 'react';
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PropTypes from 'prop-types';
 import  fetchMovies  from '../API/fetchMovies';
 
@@ -27,7 +27,7 @@ const Home = () => {
             <ul>
                 {trendMovies.map((i) => (
                     <li key={i.id}>
-                        <NavLink to={`/movies/${i.id}`} state={{ from: location }}>{i.title}</NavLink>
+                        <Link to={`/movies/${i.id}`} state={{ from: location }}>{i.title}</Link>
                     </li>
                 ))}
             </ul>
@@ -36,6 +36,6 @@ const Home = () => {
 };
 
 Home.propTypes = {
-    id: PropTypes.string.isRequired
+    id: PropTypes.string
 };
 export default Home;
