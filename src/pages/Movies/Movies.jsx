@@ -53,6 +53,7 @@ const Movies = (fetchMovieByQuery) => {
                 className="queryForm"
             >
                 <input
+                    value={queryParam}
                     onChange={updateQueryString}
                     type="text"
                     name="searchQueryForm"
